@@ -15,6 +15,8 @@ SUBSYSTEM_DEF(star_system)
 	var/patrols_left = 3 //Around 1 hour : 15 minutes
 	var/times_cleared = 0
 	var/systems_cleared = 0
+	
+	var/list/all_missions = list()
 
 /datum/controller/subsystem/star_system/fire() //Overmap combat events control system, adds weight to combat events over time spent out of combat
 	if(SSmapping.config.patrol_type == "passive")
@@ -269,6 +271,7 @@ SUBSYSTEM_DEF(star_system)
 	var/system_type = null //Set this to pre-spawn systems as a specific type.
 	var/event_chance = 0
 	var/list/possible_events = list()
+	var/list/active_missions = list()
 
 	var/list/contents_positions = list()
 	var/list/system_contents = list()
